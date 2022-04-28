@@ -1,3 +1,3 @@
-module github.com/CuteReimu/neuquant
+module github.com/huangapple/neuquant
 
-go 1.15
+go 1.18

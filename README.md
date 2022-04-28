@@ -1,6 +1,6 @@
 # NeuQuant 图像量化算法
-![](https://img.shields.io/github/languages/top/CuteReimu/neuquant "语言")
-[![](https://img.shields.io/github/workflow/status/CuteReimu/neuquant/Go)](https://github.com/CuteReimu/neuquant/actions/workflows/golangci-lint.yml "代码分析")
+![](https://img.shields.io/github/languages/top/huangapple/neuquant "语言")
+[![](https://img.shields.io/github/workflow/status/huangapple/neuquant/Go)](https://github.com/huangapple/neuquant/actions/workflows/golangci-lint.yml "代码分析")
 
 Neural network based color quantizer. Can be used to transform image.Image to image.Paletted.
 
@@ -9,7 +9,7 @@ Neural network based color quantizer. Can be used to transform image.Image to im
 ## Install 安装方法
 
 ```
-go get github.com/CuteReimu/neuquant
+go get github.com/huangapple/neuquant
 ```
 
 ## Usage 使用方法
@@ -18,7 +18,7 @@ go get github.com/CuteReimu/neuquant
 package main
 
 import (
-	"github.com/CuteReimu/neuquant"
+	"github.com/huangapple/neuquant"
 	"image"
 	"image/gif"
 	"image/png"
@@ -43,4 +43,4 @@ func main() {
 
 The original NeuQuant Algorithm was developed by Anthony Dekker, 1994. See 'LICENSE'.
 
-Golang implementation of NeuQuant Algorithm was done by CuteReimu, 2021.
+Golang implementation of NeuQuant Algorithm was done by huangapple, 2021.
