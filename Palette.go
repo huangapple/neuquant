@@ -17,8 +17,11 @@ const sample = 10 // default sample interval for quantizer
 
 func AnalyzePalette(img image.Image) (*NeuQuant, color.Palette) {
 	var pixels []byte
-	for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
-		for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
+
+	bounds := img.Bounds()
+
+	for x := bounds.Min.X; x < bounds.Max.X; x++ {
+		for y := bounds.Min.Y; y < bounds.Max.Y; y++ {
 			r, g, b, _ := img.At(x, y).RGBA()
 			pixels = append(pixels, byte(b))
 			pixels = append(pixels, byte(g))
@@ -64,4 +67,12 @@ func WritePalette(nq *NeuQuant, src image.Image, dst *image.Paletted, rect image
 			dst.SetColorIndex(x, y, uint8(nq.Map(int(b>>8), int(g>>8)&0xff, int(r>>8)&0xff)))
 		}
 	}
+}
+
+//没用
+func ImageWritePalette(img image.Image, dst *image.Paletted) {
+	nq, palette := AnalyzePalette(img)
+	img2 := image.NewPaletted(img.Bounds(), palette)
+	ParallelWritePalette(nq, img, img2)
+	ParallelWritePalette(nq, dst, img2)
 }
